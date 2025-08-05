@@ -91,16 +91,42 @@ Follow these instructions to get a local copy of Nexus Hoster up and running on 
 
 The project is organized into a modular structure that separates concerns between the frontend, backend, and configuration.
 
-/
-├── config/                 # Database and storage configurations
-├── controllers/            # Backend logic for handling requests
-├── middleware/             # Express middleware (e.g., authentication)
-├── models/                 # Mongoose schemas for MongoDB
-├── public/                 # All frontend files (HTML, CSS, JS)
-├── routes/                 # API route definitions
-├── .env                    # Environment variables (SECRET)
-├── server.js               # Main server entry point
-└── package.json            # Project dependencies
+/nexus-hoster
+├── config/
+│   ├── db.js               # Handles MongoDB connection and GridFS bucket initialization.
+│   └── storage.js          # Configures Multer for file uploads to GridFS.
+│
+├── controllers/
+│   ├── authController.js   # Contains the logic for user registration, login, and profiles.
+│   └── siteController.js   # Contains the logic for creating, listing, and deleting sites.
+│
+├── middleware/
+│   └── authMiddleware.js   # JWT verification middleware to protect routes.
+│
+├── models/
+│   ├── siteModel.js        # Mongoose schema for site metadata.
+│   └── userModel.js        # Mongoose schema for user accounts.
+│
+├── public/                 # All client-side files served to the browser.
+│   ├── css/
+│   │   └── style.css       # Main stylesheet for the application.
+│   ├── js/
+│   │   ├── api.js          # Handles all fetch requests to the backend API.
+│   │   ├── app.js          # Main frontend application logic and event listeners.
+│   │   └── ui.js           # Manages all DOM manipulation and UI updates.
+│   └── index.html          # The single HTML file for the SPA.
+│
+├── routes/
+│   ├── authRoutes.js       # Defines API endpoints for authentication.
+│   └── siteRoutes.js       # Defines API endpoints for site management.
+│
+├── .env                    # Stores secret environment variables (ignored by Git).
+├── .gitignore              # Specifies files for Git to ignore (e.g., node_modules, .env).
+├── package.json            # Lists project dependencies and scripts.
+├── package-lock.json       # Records exact dependency versions.
+└── server.js               # Main Node.js server entry point.
+
+
 ---
 
 ## 🔐 API Endpoints
