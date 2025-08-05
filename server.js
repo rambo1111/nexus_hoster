@@ -1,10 +1,10 @@
 const dotenv = require('dotenv');
-dotenv.config(); // Load env variables first
+dotenv.config();
 
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const { connectDB, getGfs } = require('./config/db.js'); // Import getGfs
+const { connectDB, getGfs } = require('./config/db.js');
 const authRoutes = require('./routes/authRoutes.js');
 const siteRoutes = require('./routes/siteRoutes.js');
 const siteController = require('./controllers/siteController');
@@ -13,7 +13,7 @@ const mongoose = require('mongoose');
 connectDB();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 10000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -48,7 +48,8 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`🚀 Server listening at http://localhost:${port}`);
+  console.log(`🚀 Server listening at ...`);
 });
+
 
 
