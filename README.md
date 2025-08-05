@@ -1,6 +1,6 @@
 # Nexus Hoster: A Modern Static Site Deployment Platform
 
-![Live Site](https://nexus-hoster.onrender.com)
+[Live Site](https://nexus-hoster.onrender.com)
 
 ![Nexus Hoster Dashboard](https://placehold.co/1200x630/0a1929/00ffff?text=Nexus%20Hoster)
 
