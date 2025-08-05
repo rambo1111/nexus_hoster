@@ -1,0 +1,252 @@
+/* --- Professional Redesign v2 --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap');
+
+:root {
+    --bg-dark: #0a1929;
+    --bg-light: #0d2b45;
+    --primary: #00aaff;
+    --accent: #00ffff;
+    --text-primary: #e6f1ff;
+    --text-secondary: #8892b0;
+    --border-color: rgba(0, 170, 255, 0.2);
+    --card-bg: #0e2238;
+    --success: #00ff88;
+    --danger: #ff4d4d;
+    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Orbitron', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+/* --- Screen Management & Transitions --- */
+.screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    width: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+}
+.screen.active {
+    display: flex;
+}
+
+/* --- Splash Screen --- */
+#splash-screen {
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    background: var(--bg-dark);
+    opacity: 1;
+    transition: opacity 0.5s ease-out, visibility 0.5s;
+}
+#splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+.splash-logo {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: var(--accent);
+    text-shadow: 0 0 20px var(--accent);
+    animation: float 4s ease-in-out infinite, flicker 3s infinite alternate;
+}
+
+/* --- Onboarding (Unified Form) --- */
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+    justify-content: center;
+    flex-grow: 1;
+}
+.auth-form {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 40px rgba(0, 170, 255, 0.1);
+}
+.auth-toggle {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+.toggle-btn {
+    flex: 1;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.toggle-btn.active {
+    background: var(--primary);
+    color: var(--bg-dark);
+    font-weight: 700;
+}
+.form-field {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, margin-top 0.5s ease-out;
+    margin-top: 0;
+}
+.form-field.visible {
+    max-height: 100px; /* Adjust as needed */
+    margin-top: 1rem;
+}
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+.form-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+}
+.submit-btn {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+/* --- General UI Components --- */
+.container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 2rem 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.btn {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--accent);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.btn:hover {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px var(--accent);
+}
+.btn.primary { background-color: var(--accent); color: var(--bg-dark); }
+.btn.primary:hover { background-color: transparent; color: var(--accent); }
+.btn.danger { border-color: var(--danger); color: var(--danger); }
+.btn.danger:hover { background-color: var(--danger); color: var(--text-primary); }
+.btn:disabled { border-color: var(--text-secondary); color: var(--text-secondary); cursor: not-allowed; background-color: transparent; box-shadow: none; }
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0, 170, 255, 0.1); }
+
+/* --- Dashboard & Profile --- */
+#profile-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    cursor: pointer;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.3s ease;
+}
+#profile-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--accent);
+}
+#service-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; width: 100%; }
+#service-list .card h4 { font-family: var(--font-heading); color: var(--accent); margin-bottom: 0.5rem; }
+#service-list .card p { color: var(--text-secondary); font-size: 0.9rem; }
+
+/* --- Profile Modal --- */
+#profile-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(10, 25, 41, 0.7);
+    backdrop-filter: blur(10px);
+}
+.modal-content {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+.modal-content .card {
+    cursor: default;
+}
+#modal-profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    margin: 0 auto 1.5rem auto;
+    background-size: cover;
+    background-position: center;
+}
+#modal-display-name { font-size: 1.8rem; font-weight: 700; }
+#modal-email { color: var(--text-secondary); margin-bottom: 2rem; }
+
+/* --- Keyframes --- */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% { text-shadow: 0 0 4px var(--accent), 0 0 11px var(--accent), 0 0 19px var(--accent); }
+    20%, 24%, 55% { text-shadow: none; }
+}

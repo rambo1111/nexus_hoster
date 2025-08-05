@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Hoster</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="screen active">
+        <h1 class="splash-logo">Nexus</h1>
+    </div>
+
+    <!-- Onboarding Screen -->
+    <div id="onboarding-screen" class="screen">
+        <div class="auth-container">
+            <form id="auth-form" class="auth-form">
+                <div class="auth-toggle">
+                    <button type="button" id="toggle-login" class="toggle-btn active">Login</button>
+                    <button type="button" id="toggle-signup" class="toggle-btn">Sign Up</button>
+                </div>
+                <div id="displayName-field" class="form-field">
+                    <input type="text" id="auth-displayName" class="form-input" placeholder="Display Name">
+                </div>
+                <input type="email" id="auth-email" class="form-input" placeholder="Email Address" required>
+                <input type="password" id="auth-password" class="form-input" placeholder="Password" required>
+                <button type="submit" id="auth-submit-btn" class="btn primary submit-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Screen -->
+    <div id="dashboard-screen" class="screen">
+        <div class="container">
+            <header>
+                <h2 id="dashboard-header-text">Dashboard</h2>
+                <div class="header-actions">
+                    <button id="new-service-btn" class="btn primary">＋ New Site</button>
+                    <button id="profile-button" title="View Profile"></button>
+                </div>
+            </header>
+            <main id="service-list"></main>
+        </div>
+    </div>
+    
+    <!-- Profile Modal -->
+    <div id="profile-modal" class="screen">
+        <div class="modal-content">
+            <div class="card">
+                <div id="modal-profile-pic"></div>
+                <h3 id="modal-display-name"></h3>
+                <p id="modal-email"></p>
+                <input type="file" id="avatar-upload-input" accept="image/*" style="display: none;">
+                <button id="upload-avatar-btn" class="btn">Upload New Picture</button>
+                <button id="sign-out-btn" class="btn danger" style="margin-top: 1rem;">Sign Out</button>
+                <button id="close-modal-btn" class="btn" style="margin-top: 1rem; background: transparent; border-color: var(--text-secondary); color: var(--text-secondary);">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Service Screen -->
+    <div id="new-service-screen" class="screen">
+        <div class="container">
+            <header>
+                <h2>Create a New Site</h2>
+                <button id="back-to-dashboard-btn" class="btn">← Dashboard</button>
+            </header>
+            <main>
+                <div id="service-choice-step">
+                    <h4>Choose a Service Type</h4>
+                    <div id="service-list" style="margin-top: 1.5rem;">
+                        <div class="card" id="static-site-card">
+                            <h4>Static Site</h4>
+                            <p>Deploy HTML, CSS, and JS files from a folder.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="upload-step" class="form-section" style="display: none;">
+                    <h4>Deploy New Static Site</h4>
+                    <form id="upload-form">
+                        <label for="site-name">Site Name (e.g., my-portfolio)</label>
+                        <input type="text" id="site-name" name="siteName" class="form-input" required pattern="[a-z0-9\-]+" title="Only lowercase letters, numbers, and hyphens.">
+                        
+                        <label for="file-upload">Upload Files (select all, including index.html)</label>
+                        <input type="file" id="file-upload" name="files" class="form-input" multiple required>
+
+                        <p class="validation-msg" id="validation-msg">Awaiting files...</p>
+                        <button type="submit" id="deploy-btn" class="btn primary" disabled>Deploy</button>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Service Detail Screen -->
+    <div id="service-detail-screen" class="screen">
+        <div class="container">
+            <header>
+                <h2 id="detail-site-name"></h2>
+                <button id="detail-back-btn" class="btn">← Dashboard</button>
+            </header>
+            <main>
+                <p><strong>URL:</strong> <a id="detail-site-url" href="#" target="_blank" style="color: var(--accent);"></a></p>
+                <h4>Files</h4>
+                <div id="detail-file-list"></div>
+                <hr style="border-color: var(--border-color); margin: 2rem 0;">
+                <h4>Danger Zone</h4>
+                <button id="delete-service-btn" class="btn danger">Delete This Service</button>
+            </main>
+        </div>
+    </div>
+
+    <script src="/js/app.js" type="module"></script>
+</body>
+</html>

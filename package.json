@@ -1,0 +1,23 @@
+{
+  "name": "static-hoster",
+  "version": "1.0.0",
+  "description": "A static site hosting application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "gridfs-stream": "^1.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^4.17.2",
+    "mongoose": "^6.12.8",
+    "multer": "1.4.4-lts.1",
+    "multer-gridfs-storage": "^5.0.2"
+  }
+}
