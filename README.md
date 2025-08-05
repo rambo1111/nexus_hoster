@@ -1,7 +1,7 @@
 # Nexus Hoster: A Modern Static Site Deployment Platform
 
 <p align="center">
-    [![Nexus Hoster](https://img.shields.io/badge/Nexus%20Hoster-Live-cyan?style=plastic)](https://nexus-hoster.onrender.com)
+    <a>[![Nexus Hoster](https://img.shields.io/badge/Nexus%20Hoster-Live-cyan?style=plastic)](https://nexus-hoster.onrender.com)</a>
 </p>
 
 ![Nexus Hoster Dashboard](https://placehold.co/1200x630/0a1929/00ffff?text=Nexus%20Hoster)
