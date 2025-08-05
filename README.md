@@ -91,14 +91,16 @@ Follow these instructions to get a local copy of Nexus Hoster up and running on 
 
 The project is organized into a modular structure that separates concerns between the frontend, backend, and configuration.
 
-/├── config/                 # Database and storage configurations
- ├── controllers/            # Backend logic for handling requests
- ├── middleware/             # Express middleware (e.g., authentication)
- ├── models/                 # Mongoose schemas for MongoDB
- ├── public/                 # All frontend files (HTML, CSS, JS)
- ├── routes/                 # API route definitions
- ├── .env                    # Environment variables (SECRET)
- ├── server.js               # Main server entry point└── package.json            # Project dependencies
+/
+├── config/                 # Database and storage configurations
+├── controllers/            # Backend logic for handling requests
+├── middleware/             # Express middleware (e.g., authentication)
+├── models/                 # Mongoose schemas for MongoDB
+├── public/                 # All frontend files (HTML, CSS, JS)
+├── routes/                 # API route definitions
+├── .env                    # Environment variables (SECRET)
+├── server.js               # Main server entry point
+└── package.json            # Project dependencies
 ---
 
 ## 🔐 API Endpoints
