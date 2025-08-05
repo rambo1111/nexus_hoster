@@ -13,7 +13,7 @@ const mongoose = require('mongoose');
 connectDB();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 10000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -50,3 +50,4 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
   console.log(`🚀 Server listening at http://localhost:${port}`);
 });
+
