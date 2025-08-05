@@ -91,6 +91,7 @@ Follow these instructions to get a local copy of Nexus Hoster up and running on 
 
 The project is organized into a modular structure that separates concerns between the frontend, backend, and configuration.
 
+```
 /nexus-hoster
 ├── config/
 │   ├── db.js               # Handles MongoDB connection and GridFS bucket initialization.
@@ -125,7 +126,7 @@ The project is organized into a modular structure that separates concerns betwee
 ├── package.json            # Lists project dependencies and scripts.
 ├── package-lock.json       # Records exact dependency versions.
 └── server.js               # Main Node.js server entry point.
-
+```
 
 ---
 
